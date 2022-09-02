@@ -1,0 +1,116 @@
+body{
+    font-family: sans-serif;
+    margin: 0;
+    background-color: rgb(173, 173, 173);
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+header{
+    display: flex;
+    height: 60px;
+    background-color: rgb(9, 45, 146);
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.redes img{
+    width: 30px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.logo img{
+    height: 50px;
+    margin-right: 20px;
+}
+
+nav{
+    display: flex;
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+.barra{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.card{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 20px;
+    padding: 2px 16px;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+    background-color: white;
+}
+
+.card body{
+    flex: auto;
+    padding: 0.1rem;
+}
+
+.btn{
+    border: 2px solid #363636;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+}
+
+.btn:hover{
+
+        background-color: black;
+        color: white;
+    
+}
+
+h2{
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 600;
+}
+
+h5{
+    font-family: 'DynaPuff', cursive;
+    text-align: center;
+}
+
+p{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.img-fluid{
+    height: 175px;
+}
+
+.mt-3{
+    margin-bottom: 1rem;
+}
+
+.list-group{
+    text-align: center;
+    align-items: center;
+    
+}

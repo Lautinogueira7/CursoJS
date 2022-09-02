@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/main.js"></script>
+    <!-- sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300&family=DynaPuff:wght@500&family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./img/logopng.png" alt="logo de la store">
+            <h2 class="store">Skin Store</h2>
+        </div>
+        <div class="redes">
+            <img src="./img/fb.webp" alt="">
+            <img src="./img/tw.webp" alt="">
+            <img src="./img/ig.webp" alt="">
+        </div>
+        <section>
+            <button class="btn btn-primary m-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="controls" >
+                Mi carrito
+            </button>
+            <!-- offcanvas menu -->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" arial-labelledby="offcanvasLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">
+                        TU CARRITO
+                    </h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <!-- Carrito -->
+                    <div>
+                        <aside class="col-sm-10">
+                            <h2>Carrito</h2>
+                            <!-- Elementos del carrito -->
+                            <ul id="carrito" class="list-group"></ul>
+                            <hr>
+                            <!-- Precio total -->
+                            <p class="text-right">Total: <span id="total"></span>&dollar;</p>
+                            <div class="dropdown mt-3">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" id="dropdownMenu" >
+                                    Elija su método de pago
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                                    <li><a href="#!" class="dropdwn-item">Tarjeta de credito</a></li>
+                                    <li><a href="#!" class="dropdwn-item">Mercadopago</a></li>
+                                    <li><a href="#!" class="dropdwn-item">Transferencia bancaria</a></li>
+                                </ul>
+                            </div>
+                            <button id="boton-vaciar" class="btn btn-danger">Comprar</button>
+                        </aside>
+                        <p>¡Muchas gracias por su compra!</p>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <nav>
+            <ul class="barra">
+                <li class="barra"><a href="#"> Inicio</a></li>
+                <li class="barra"><a href=""> Contacto</a></li>
+                <li class="barra"><a href=""> Sobre Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="items">
+        <div class="container">
+            <div class="row">
+                <!-- Elementos generados a partir del JSON -->
+                <main id="items" class="row row-cols-1 row-cols-md-3 g-4"></main>
+                
+                
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
