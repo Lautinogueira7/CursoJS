@@ -1,41 +1,40 @@
-{
-    "baseDeDatos": [
+
+[
     {
-        "id": "1",
+        "id": 1,
         "nombre": "AK-47 | Neon Revolution",
-        "precio": "5.25",
+        "precio": 5.25,
         "imagen": "./img/ak47.webp"
     },
     {
-        "id": "2",
+        "id": 2,
         "nombre": "AWP | Asiimov",
-        "precio": "14.90",
+        "precio": 14.90,
         "imagen": "./img/awp.webp"
     },
     {
-        "id": "3",
+        "id": 3,
         "nombre": "★ Moto Gloves | Finish Line",
-        "precio": "58.91",
+        "precio": 58.91,
         "imagen": "./img/guantes.webp"
     },
     {
-        "id": "4",
+        "id": 4,
         "nombre": "★ Huntsman Knife | Autotronic",
-        "precio": "86.00",
+        "precio": 86.00,
         "imagen": "./img/cazador.webp"
     },
     {
-        "id": "5",
+        "id": 5,
         "nombre": "Glock | Water Elemental",
-        "precio": "4.33",
+        "precio": 4.33,
         "imagen": "./img/glock-water.webp"
     },
     {
-        "id": "6",
+        "id": 6,
         "nombre": "Usp-S | Orion",
-        "precio": "12.84",
+        "precio": 12.84,
         "imagen": "./img/usp.webp"
     }
 
-    ]
-}
+]

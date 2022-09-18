@@ -1,71 +1,15 @@
  document.addEventListener('DOMContentLoaded', () => {
 
+
     const API = "./js/data.json";
     function fetchStore() {
         fetch(API)
-        .then((res) => res.json ())
+        .then((res) => res.json())
         .then((data) => {
-            createStore(data)
-            createLocal(data.box, "box")
-            createLocal(data.key, "key")
-            createLocal(data.items, "items")
-        }
-        )
+            renderizarProductos(data)
+            renderizarCarrito(data)
+        })
     }
-    fetchStore();
-    
-    let section = document.getElementById("store");
-
-    function createStore(data) {
-    const {box, key, items} = data 
-    ola(box, "box");
-    ola(key, "key");
-    
-    
-    }   
-
-    // Variables
-     const baseDeDatos = [
-         {
-             id: 1,
-             nombre: 'AK-47 | Neon Revolution',
-             precio: 5.25,
-             imagen: './img/ak47.webp'
-         },
-         {
-             id: 2,
-             nombre: 'AWP | Asiimov',
-             precio: 14.90,
-             imagen: './img/awp.webp'
-         },
-         {
-             id: 3,
-             nombre: '★ Moto Gloves | Finish Line ',
-             precio: 58.91,
-             imagen: './img/guantes.webp'
-         },
-         {
-             id: 4,
-             nombre: '★ Huntsman Knife | Autotronic',
-             precio: 86.00,
-             imagen: './img/cazador.webp'
-         },
-         {
-             id: 5,
-             nombre: 'Glock | Water Elemental',
-             precio: 4.33,
-             imagen: './img/glock-water.webp'
-         },
-         {
-             id: 6,
-             nombre: 'Usp-S | Orion',
-             precio: 12.84,
-             imagen: './img/usp.webp'
-        },
-
-
-     ];
-
     let carrito = [];
     const divisa = '$';
     const DOMitems = document.querySelector('#items');
@@ -74,13 +18,16 @@
     const DOMbotonVaciar = document.querySelector('#boton-vaciar');
     const miLocalStorage = window.localStorage;
 
+    
+    
     // Funciones
-
+    fetchStore()
     
     /* Dibuja todos los productos a partir de la base de datos */
-    function renderizarProductos() {
+    function renderizarProductos(baseDeDatos) {
         DOMitems.innerHTML = "";
         baseDeDatos.forEach((info) => {
+            
             // Estructura
             const miNodo = document.createElement('div');
             miNodo.classList.add('card', 'm-2', 'p-2');
@@ -105,7 +52,7 @@
             miNodoBoton.classList.add('btn', 'btn-primary');
             miNodoBoton.textContent = '+';
             miNodoBoton.setAttribute('marcador', info.id);
-            miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+            miNodoBoton.addEventListener('click', anyadirProductoAlCarrito );
             // Insertamos
             miNodoCardBody.appendChild(miNodoImagen);
             miNodoCardBody.appendChild(miNodoTitle);
@@ -114,7 +61,8 @@
             miNodo.appendChild(miNodoCardBody);
             DOMitems.appendChild(miNodo);
         });
-    }
+        
+     }
 
     /* Evento para añadir un producto al carrito de la compra*/
     function anyadirProductoAlCarrito(evento) {
@@ -128,13 +76,13 @@
         // Agregamos el Nodo a nuestro carrito
         carrito.push(evento.target.getAttribute('marcador'))
         // Actualizamos el carrito 
-        renderizarCarrito();
+        fetchStore();
         // Actualizamos el LocalStorage
         guardarCarritoEnLocalStorage();
     }
 
     /** Dibuja todos los productos guardados en el carrito*/
-    function renderizarCarrito() {
+    function renderizarCarrito(baseDeDatos) {
         // Vaciamos todo el html
         DOMcarrito.textContent = '';
         // Quitamos los duplicados
@@ -146,7 +94,7 @@
                 // ¿Coincide las id? Solo puede existir un caso
                 return itemBaseDatos.id === parseInt(item);
             });
-            // Cuenta el número de veces que se repite el producto
+            // // Cuenta el número de veces que se repite el producto
             const numeroUnidadesItem = carrito.reduce((total, itemId) => {
                 // ¿Coincide las id? Incremento el contador, en caso contrario no mantengo
                 return itemId === item ? total += 1 : total;
@@ -167,7 +115,7 @@
             DOMcarrito.appendChild(miNodo);
         });
         // Renderizamos el precio total en el HTML
-        DOMtotal.textContent = calcularTotal();
+        DOMtotal.textContent = calcularTotal(baseDeDatos);
     }
 
     /**
@@ -181,14 +129,14 @@
             return carritoId !== id;
         });
         // volvemos a renderizar
-        renderizarCarrito();
+        fetchStore();
         // Actualizamos el LocalStorage
         guardarCarritoEnLocalStorage();
 
     }
 
     /*Calcula el precio total teniendo en cuenta los productos repetidos*/
-    function calcularTotal() {
+    function calcularTotal(baseDeDatos) {
         // Recorremos el array del carrito 
         return carrito.reduce((total, item) => {
             // De cada elemento obtenemos su precio
@@ -204,7 +152,7 @@
     function vaciarCarrito() {
         // Limpiamos los productos guardados
         carrito = [];
-        renderizarCarrito();
+        fetchStore();
         // Borra LocalStorage
         localStorage.clear();
 
@@ -227,7 +175,4 @@
 
     // Inicio
     cargarCarritoDeLocalStorage();
-    renderizarProductos();
-    renderizarCarrito();
-});
-
+ });
